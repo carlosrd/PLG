@@ -1,0 +1,137 @@
+1 - Uso básico del compilador:
+---------------------------------------------------------------------------------------
+Pasos para crear un programa:
+
+	1. Escriba el código en la sección de código (panel izquierdo) o cárguelo 
+	   desde un fichero. 
+	   
+	   * Existe la posibilidad de cargar un programa de ejemplo desde el menú "Archivo"
+	   para observar la sintaxis del lenguaje.
+	   * También se puede cargar una prueba (menú "Testing") desde un conjunto de pruebas 
+	   positivas (pruebas que compilan y ejecutan satisfactoriamente) o negativas (pruebas 
+	   que no compilan y muestran algún mensaje de error)
+	   
+	2. Salve el fichero. Es necesario para llevar a cabo cualquier acción (excepto si
+	   carga una prueba desde el menú "Testing")
+	
+	3. Ahora se puede:
+		3.1 - Compilar: Analiza léxica y sintácticamente el código salvado en
+			en el fichero. Si la operación tiene éxito, se podrá visualizar el 
+			"Código Objeto" y las "Tablas de Símbolos" en las pestañas destinadas a 
+			ello en el Inspector (panel derecho)
+						
+		3.2 - Ejecutar: Compila el código salvado en el fichero y si tiene éxito,
+			ejecuta el código objeto obtenido. 
+			
+			* Se puede visualizar la traza de ejecución en la pestaña "Máquina P (Traza)" 
+			del Inspector (panel derecho)
+						
+		3.3 - Ejecutar Paso a Paso: Compila el código salvado en el fichero y si tiene 
+			éxito, ejecuta el código objeto obtenido. 
+			
+			* Se puede visualizar la ejecución paso por paso (estado de la pila, memoria, 
+			registros y programa) en la pestaña "Maquina P (Paso a Paso)" del panel 
+			Inspector. Para controlar el flujo de ejecución dispone de los botones 
+			"Avanzar", para pasar a la siguiente instrucción; y "Parar", para detener la 
+			ejecución del programa. Además de la vista gráfica del estado de la Máquina P, 
+			también puede consultar la traza a la vez.
+						
+		*!*: En cualquier caso, los errores son notificados por la Consola del
+		     compilador
+			
+			 Notas Ejecución: 
+			 ---------------
+			 -> La función "out()" muestra los resultados por la Consola del compilador
+			 -> La función "in()" lanza un diálogo al usuario en el que debe introducir
+			    un valor para una cierta variable. Si este pulsa el boton Cancelar, se
+			    considera que el usuario ha decidido detener la ejecución
+			
+			
+2 - Explicación de las pestañas del Inspector
+---------------------------------------------------------------------------------------
+	
+	a) Tablas de Símbolos:
+	   Cuando un código es compilado, se muestran la tablas de símbolos para el programa 
+	   actual. La tabla Global se encuentra en la pestaña Global mientras que las tablas
+	   locales se pueden visualizar en la subpestaña con el mismo nombre del subprograma 
+	   a la que pertenece.
+	   
+	b) Código Objeto:
+	   Cuando un código es compilado, se muesta el Código Objeto generado en esta 
+	   vista. También se puede consultar el código en el fichero con mismo nombre y 
+	   extensión ".co" (Código Objeto)
+	   
+	c) Máquina P (Traza)
+	   Cuando un código es compilado y ejecutado (en cualquier modo) se muestra la 
+	   traza del programa (instruccion, estado de la pila y la memoria) en formato
+	   texto
+	   
+	d) Máquina P (Paso a Paso)
+	   Cuando un código es compilado y ejecutado paso a paso, además de la traza, se 
+	   puede visualizar gráficamente la ejecución paso a paso (instrucción actual del 
+	   programa, la pila, la memoria y los registros). La instrucción actual y la última
+	   posición de memoria accedida aparecerán remarcados en otro color. Usar "Avanzar" 
+	   y "Parar" para controlar el flujo del programa.  
+	   
+	   En esta vista, el registro Contador de Programa tomará un color en función del 
+	   tipo de parada provocada en el interprete:
+	   	* Verde: La máquina P se detuvo al alcanzar el final de programa
+	   	* Ámbar: La máquina P se detuvo por acción del usuario (ya sea por pulsar 
+	   	         "Parar" como "Cancelar" durante una ínvocación de la llamada "in()"
+	   	* Rojo:  La máquina P se detuvo debido a un error de ejecución
+			
+3 - Explicación de los botones (por orden)
+---------------------------------------------------------------------------------------
+
+	a) Nuevo Programa:
+	   Vacia el panel de código para iniciar un nuevo programa.
+	
+	b) Cargar Programa:
+	   Abre un diálogo para cargar código desde fichero. Los ficheros aceptados son de
+	   extensión ".lpp" (Leng de Prog Propio) y excepcionalmente ".txt"
+	   
+	c) Guardar Programa:
+	   Abre un diálogo seleccionar un fichero donde guardar el contenido del panel 
+	   código. Los archivos se guardarán con la extensión ".lpp" automáticamente (no 
+	   es necesario añadirla)
+	
+	d) Compilar
+	   Analiza léxica y sintácticamente el código salvado en en el fichero. Si la 
+	   operación tiene éxito, se podrá visualizar el Código Objeto y la Tabla de Símbolos 
+	   en las pestañas destinadas a ello en el Inspector (panel derecho)
+	   
+	e) Ejecutar
+	   Compila el código salvado en el fichero y si tiene éxito, ejecuta el código 
+	   objeto obtenido. Se puede visualizar la traza de ejecución en la pestaña Maquina P 
+	   (Traza) del Inspector (panel derecho)
+	   
+	f) Ejecutar Paso a Paso: 
+	   Compila el código salvado en el fichero y si tiene éxito, ejecuta el código objeto 
+	   obtenido. Se puede visualizar la ejecución paso por paso (estado de la pila, memoria, 
+	   registros y programa) en la pestaña Maquina P (Paso a Paso) del panel Inspector. Para 
+	   controlar el flujo dispone de los botones "Avanzar", para pasar a la siguiente 
+	   instrucción; y "Parar", para detener la ejecución del programa. Además de la vista gráfica 
+	   del estado de la Máquina P, también puede consultar la traza a la vez.
+	
+	g) Avanzar
+	   Durante una ejecución Paso a Paso, salta a la siguiente instrucción en el programa y 
+	   actualiza la interfaz gráfica con el estado actual.
+	 
+	h) Parar
+	   Durante una ejecución Paso a Paso, provoca la parada de la Máquina P
+	   
+	i) Limpiar Consola
+	   Sirve para limpiar la consola manualmente cuando el sistema de autolimpieza está 
+	   desactivado.
+	   
+	j) Avanzar Prueba Positiva
+	   Se activa cuando una prueba positiva es cargada desde el menu "Testing > Cargar prueba 
+	   positiva...". Sirve para cargar en el área de escritura de código la siguiente prueba
+	   sin necesidad de abrir el menú "Testing" de nuevo. Cuando se alcance la última prueba se 
+	   volverá a desactivar.    
+	   
+	k) Avanzar Prueba Negativa
+	   Se activa cuando una prueba negativa es cargada desde el menu "Testing > Cargar prueba 
+	   negativa...". Sirve para cargar en el área de escritura de código la siguiente prueba
+	   sin necesidad de abrir el menú "Testing" de nuevo. Cuando se alcance la última prueba se 
+	   volverá a desactivar.    

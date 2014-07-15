@@ -1,0 +1,93 @@
+@ Programa de ejemplo
+program: ejemplo{
+    consts {
+      const natural dim:=10;
+    }         
+    tipos{
+      tipo float[dim][dim] tmatriz;
+      tipo (float,float) tresultado;  
+    }    
+    vars{
+      var tmatriz matriz;
+      var tresultado resul;
+    }
+    subprograms {
+    
+	  subprogram: calculaTraza(tmatriz matriz, float * traza){
+	     vars {
+	       var natural i;
+	     }
+	     instructions {
+
+	       i=0;	
+	       traza=0;
+	
+	       while i < dim do
+	         traza = traza + matriz[i][i];
+	         i = i+1;    
+	       endwhile;
+	     }
+ 	  }
+
+	  subprogram: calculaMaximo(tmatriz matriz, float * maximo) {
+	    vars {
+	      var natural i;
+	      var natural j;
+	    }
+	    instructions {
+	       i=0;
+	       maximo=-1;
+	
+	       while i < dim do
+	         j = 0;  
+	         while j < dim do
+	           if matriz[i][j] > maximo then
+	              maximo = matriz[i][j];
+	           endif
+	           j = j + 1;
+	         endwhile;
+	         i = i + 1;
+	       endwhile;          
+	    }
+	  }
+
+	  subprogram: procesaMatriz(tmatriz matriz, tresultado * resultado) {
+	    instructions {
+	      call calculaTraza(matriz = matriz,traza = resultado_0);
+	      call calculaTraza(matriz = matriz,traza = resultado_1);
+	    }
+	  }
+
+	  subprogram: leeMatriz(tmatriz * matriz) {
+	    vars{
+	      var natural i;
+	      var natural j;
+	    }
+	    instructions {
+	       i=0;
+	       
+	       while i < dim do
+	         j = 0;  
+	         while j < dim do
+	           out(i); out(','); out(j); out(':');
+	           in(matriz[i][j]);
+	           while matriz[i][j] <= 0 do
+	             out('!'); out(i); out(','); out(j); out(':');
+	             in(matriz[i][j]);
+	           endwhile;
+	           j = j + 1;
+	         endwhile;
+	         i = i + 1;
+	       endwhile;          
+	    }
+        }                         
+   }
+
+   instructions{
+      call leeMatriz(matriz = matriz);
+      call procesaMatriz(matriz = matriz,
+	                 resultado = resul);
+      out(resul_0);
+      out(resul_1);   
+   }
+}
