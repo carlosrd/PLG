@@ -18,11 +18,11 @@ Definition and specification of programming languages ​​and their processors
 [PLG] Procesadores de Lenguaje
 ==
 
-## General description
+## Breve descripción
 
 Definición y especificación de lenguajes de programación y de sus procesadores; Implementación de procesadores mediante lenguajes de propósito general; Herramientas de prototipado y construcción de procesadores; 
 
-### Project 1 - Compilador de un lenguaje similar a Pascal
+### Proyecto 1 - Compilador de un lenguaje similar a Pascal
 
 Incluye:
 * Interfaz grafica para la edición de código fuente
